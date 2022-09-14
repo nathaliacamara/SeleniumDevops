@@ -37,8 +37,8 @@
           run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci cluecumber-report:reporting
 
         - name: Gerar relatório quando falhar o teste
-            if: always()
-            run: mvn cluecumber-report:reporting
+          if: always()
+          run: mvn cluecumber-report:reporting
 
         - name: Arquivar relatório
           if: always()
