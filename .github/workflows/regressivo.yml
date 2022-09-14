@@ -4,6 +4,8 @@
   on:
     pull_request:
       branches: [ main ]
+    schedule:
+      -cron: ' */5 * * * 1-5'
 
   jobs:
     RunTest:
@@ -33,4 +35,15 @@
 
         - name: Run Test headless
           run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci cluecumber-report:reporting
+
+        - name: Gerar relatório quando falhar o teste
+            if: always()
+            run: mvn cluecumber-report:reporting
+
+        - name: Arquivar relatório
+          if: always()
+          uses: actions/upload-artifact@v3
+          with:
+            name: report-execution
+            path: "**/formated-report/"
 
