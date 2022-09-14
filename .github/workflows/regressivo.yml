@@ -5,7 +5,7 @@
     pull_request:
       branches: [ main ]
     schedule:
-      - cron: ' */5 * * * 1-5'
+      - cron: '*/5 * * * 1-5'
 
   jobs:
     RunTest:
