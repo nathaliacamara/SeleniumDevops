@@ -2,8 +2,8 @@
 
 
   on:
-    pull_request:
-      branches: [ main ]
+    schedule:
+      - cron: '*/5 * * * 1-5'
 
   jobs:
     RunTest:
@@ -53,8 +53,8 @@
             SLACK_CHANNEL: devops-resultado-testes
             SLACK_COLOR: ${{ job.status }}
             SLACK_ICON: https://www.pngmart.com/files/20/Success-PNG_Isolated-HD-Pictures.png
-            SLACK_MESSAGE: 'Teste do PR Executado com Sucesso! :white_check_mark:'
-            SLACK_TITLE: 'Teste do PR Executado com Sucesso! :white_check_mark:'
+            SLACK_MESSAGE: 'Teste Agendado Executado com Sucesso! :white_check_mark:'
+            SLACK_TITLE: 'Teste Agendado Executado com Sucesso! :white_check_mark:'
             SLACK_USERNAME: SUCESSO
 
         - name: Enviar notificação Slack Falha
@@ -65,8 +65,8 @@
             SLACK_CHANNEL: devops-resultado-testes
             SLACK_COLOR: ${{ job.status }}
             SLACK_ICON: https://cdn-icons-png.flaticon.com/512/148/148766.png
-            SLACK_MESSAGE: 'Erro ao Executar testes do PR! :fire:'
-            SLACK_TITLE: 'Erro ao Executar testes do PR ! :fire:'
+            SLACK_MESSAGE: 'Erro ao Executar testes Agendados! :fire:'
+            SLACK_TITLE: 'Erro ao Executar testes Agendados! :fire:'
             SLACK_USERNAME: ERRO
 
 
