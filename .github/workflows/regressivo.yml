@@ -1,4 +1,4 @@
-  name: Testes Regressivos - PR 
+  name: Testes Regressivos - PR
 
 
   on:
@@ -50,7 +50,7 @@
           if: ${{ success() }}
           env:
             SLACK-WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-            SLACK_CHANNEL: devops-resultado-testes
+            SLACK_CHANNEL: qadevops
             SLACK_COLOR: ${{ job.status }}
             SLACK_ICON: https://www.pngmart.com/files/20/Success-PNG_Isolated-HD-Pictures.png
             SLACK_MESSAGE: 'Teste do PR Executado com Sucesso! :white_check_mark:'
@@ -62,7 +62,7 @@
           if: ${{ failure() }}
           env:
             SLACK-WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-            SLACK_CHANNEL: devops-resultado-testes
+            SLACK_CHANNEL: qadevops
             SLACK_COLOR: ${{ job.status }}
             SLACK_ICON: https://cdn-icons-png.flaticon.com/512/148/148766.png
             SLACK_MESSAGE: 'Erro ao Executar testes do PR! :fire:'
